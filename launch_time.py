@@ -14,6 +14,7 @@ import os
 import time
 
 
+# APP类
 class APP(object):
     def __init__(self, package_name, activity_name, is_cold_launch):
         self.package_name = package_name
@@ -49,6 +50,7 @@ class APP(object):
         return time.time()
 
 
+# 控制器
 class Controller(object):
     def __init__(self, count, package_name, activity_name, is_cold_launch=True):
         self.app = APP(package_name, activity_name, is_cold_launch)
