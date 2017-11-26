@@ -48,5 +48,5 @@ class Controller(object):
 
 if __name__ == "__main__":
     Controller = Controller("com.tencent.mm", 5)
-    Controller.test_process()
+    Controller.run()
     Controller.save_result_to_csv()
