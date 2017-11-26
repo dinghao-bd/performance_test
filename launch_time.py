@@ -30,7 +30,7 @@ class APP(object):
     # 关闭app
     def stop_app(self):
         if self.is_cold_launch:
-            cmd = "adb shell am force-stop %s" % (self.package_name)
+            cmd = "adb shell am force-stop %s" % self.package_name
         else:
             cmd = "adb shell input keyevent 3"
         os.popen(cmd)
@@ -68,10 +68,10 @@ class Controller(object):
 
     # 保存测试结果到CSV文件
     def save_result_to_csv(self):
-        csvfile = file("launchtime.csv", "wb")
-        write = csv.writer(csvfile)
+        csv_file = file("launchtime.csv", "wb")
+        write = csv.writer(csv_file)
         write.writerows(self.launch_time)
-        csvfile.close()
+        csv_file.close()
 
 
 if __name__ == "__main__":
