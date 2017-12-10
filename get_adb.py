@@ -9,6 +9,8 @@
 @time: 2017/12/9 17:35
 """
 import os
+
+# 请到GitHub上下载PyAdb安装，版本0.1.4
 from pyadb import ADB
 
 
@@ -19,6 +21,7 @@ class AdbClient(object):
     def visible(self):
         pass
 
+    # 根据不同的平台获取环境变量中adb的path
     def get_path(self):
         if os.name == "nt":
             for line in os.environ.get("PATH").split(";"):
@@ -29,6 +32,7 @@ class AdbClient(object):
                 if "platform-tools" in line:
                     return line
 
+    # 初始化PyAdb
     def get_adb_obj(self):
         adb_object = None
 
@@ -42,8 +46,5 @@ class AdbClient(object):
         return adb_object
 
 
+# 初始化AdbClient，方便外面直接调用
 adb = AdbClient().get_adb_obj()
-
-if __name__ == "__main__":
-    adb_obj = AdbClient().get_adb_obj()
-    print adb_obj.get_devices()
